@@ -103,3 +103,43 @@ body {
   font-size: 15px;
   color: #1a1a1a;
 }
+.volume-control-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.volume-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.volume-slider-popup {
+  display: none;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.volume-slider-popup.active {
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider-popup input[type="range"] {
+  width: 90px;
+  accent-color: #333;
+  cursor: pointer;
+}

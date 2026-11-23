@@ -121,6 +121,30 @@
         pauseIcon.style.display = 'none';
         seekSlider.value = 0;
       });
+      const volumeToggleBtn = document.getElementById('volumeToggleBtn');
+const volumePopup = document.getElementById('volumePopup');
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Открытие / закрытие ползунка по клику на значок динамика
+volumeToggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  volumePopup.classList.toggle('active');
+});
+
+// Регулировка уровня звука
+volumeSlider.addEventListener('input', (e) => {
+  audio.volume = parseFloat(e.target.value);
+});
+
+// Закрытие ползунка при клике в любое другое место страницы
+document.addEventListener('click', () => {
+  volumePopup.classList.remove('active');
+});
+
+// Предотвращение закрытия при взаимодействии с самим ползунком
+volumePopup.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
     } else {
       document.querySelector('.guide-container').innerHTML = '<p style="text-align:center; padding: 40px;">Экспонат не найден.</p>';
     }
